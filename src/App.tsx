@@ -157,7 +157,8 @@ function Principal({ sesion, alSalir, alVencer }: { sesion: Sesion; alSalir: () 
       </main>
       {ayuda && <Ayuda alCerrar={() => setAyuda(false)} />}
       {horariosAbierto && (
-        <VistaHorarios token={sesion.token} alCerrar={() => setHorariosAbierto(false)} alVencerSesion={alVencer}
+        <VistaHorarios token={sesion.token} horarios={horarios} cargado={horariosCargados}
+          alCerrar={() => setHorariosAbierto(false)} alVencerSesion={alVencer}
           alCambiar={() => { recargarHorarios(); recargar() }} />
       )}
     </div>

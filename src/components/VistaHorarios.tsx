@@ -4,21 +4,22 @@ import { ddmm } from '../lib/fechas'
 import { losDias } from '../lib/fijos'
 import { MOTIVOS, type Motivo } from '../lib/bloqueos'
 import {
-  agregarHorario, eliminarHorario, previsualizarHorario, useHorarios, type ChoquesHorario,
+  agregarHorario, eliminarHorario, previsualizarHorario, type ChoquesHorario,
 } from '../lib/horarios'
 import { SesionVencida } from '../lib/turnos'
 
 interface Props {
   token: string
+  horarios: string[]
+  cargado: boolean
   alCerrar: () => void
   alVencerSesion: () => void
-  alCambiar: () => void // algo cambió: recargar la tabla de turnos
+  alCambiar: () => void // algo cambió: recargar la tabla de turnos y los horarios
 }
 
 type Pendiente = { hora: string; datos: ChoquesHorario }
 
-export default function VistaHorarios({ token, alCerrar, alVencerSesion, alCambiar }: Props) {
-  const { horarios, cargado } = useHorarios('doblefalta')
+export default function VistaHorarios({ token, horarios, cargado, alCerrar, alVencerSesion, alCambiar }: Props) {
   const [nuevo, setNuevo] = useState('')
   const [ocupado, setOcupado] = useState(false)
   const [error, setError] = useState<string | null>(null)
