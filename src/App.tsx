@@ -95,13 +95,13 @@ function Principal({ sesion, alSalir, alVencer }: { sesion: Sesion; alSalir: () 
     <div className="min-h-[100dvh] pb-24">
       <header className="sticky top-[env(safe-area-inset-top,0px)] z-10 bg-noche text-white shadow-lg">
         <div className="mx-auto flex max-w-3xl items-center gap-3 px-4 pt-3">
-          <img src={logoUrl()} alt="" className="h-11 w-auto" />
-          <h1 className="flex-1 font-tablero text-3xl font-extrabold tracking-wide">Turnos</h1>
-          <span className="hidden text-sm text-white/70 sm:inline">{sesion.nombre || sesion.usuario}</span>
+          <img src={logoUrl()} alt="" className="h-9 w-auto max-w-[120px] shrink-0 sm:h-11" />
+          <h1 className="min-w-0 flex-1 truncate font-tablero text-3xl font-extrabold tracking-wide">Turnos</h1>
+          <span className="hidden shrink-0 text-sm text-white/70 sm:inline">{sesion.nombre || sesion.usuario}</span>
           <button onClick={() => setHorariosAbierto(true)} aria-label="Administrar horarios"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-lg">⚙</button>
-          <button onClick={() => setAyuda(true)} className="rounded-full border border-white/30 px-3 py-1.5 text-sm font-semibold">Ayuda</button>
-          <button onClick={alSalir} className="rounded-full border border-white/30 px-3 py-1.5 text-sm font-semibold">Salir</button>
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/30 text-lg">⚙</button>
+          <button onClick={() => setAyuda(true)} className="shrink-0 rounded-full border border-white/30 px-3 py-1.5 text-sm font-semibold">Ayuda</button>
+          <button onClick={alSalir} className="shrink-0 rounded-full border border-white/30 px-3 py-1.5 text-sm font-semibold">Salir</button>
         </div>
         {/* módulos (solo si hay más de un complejo) */}
         {COMPLEJOS.length > 1 && <nav className="mx-auto mt-3 flex max-w-3xl px-2" aria-label="Complejo">
